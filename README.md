@@ -1,2 +1,2 @@
 # eRegistry
-To track files and handle leave request and approval in the registry
+To create, track file movements and handle leave request and approval in the registry
