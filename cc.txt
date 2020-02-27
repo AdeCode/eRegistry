@@ -1,0 +1,5 @@
+http://localhost/eregistry/u23s07e19r84s/index.php
+
+					<img src="./img/sita_logo.png" alt="MDA logo" style="float: left">
+
+&copy; <?php echo date("Y", time()); ?>, SITA. All rights reserved.

@@ -1,0 +1,80 @@
+<?php
+    $response = "";
+    $confirmSubmission = false;
+	$staffId = $loggedId;
+?>
+
+<!-- User Welcome Message-->
+<section class="w3-row">
+    <!-- Left Spacer -->
+    <div class="w3-col l2">
+        &nbsp;
+    </div>
+
+    <!-- Content Area -->
+    <div class="w3-col l8">
+        <h4 align="center">
+                STAFFS ON LEAVE
+            </h4>        
+		<div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
+            
+				
+					<?php 
+						$counter = 1;
+						$record = DiffTables::find_by_sql("SELECT * FROM leave_application WHERE status = 'approved' order by date_of_application DESC");
+						
+						echo '<table class="table table-bordered table-hover">';
+						echo '<thead>
+					<tr>
+						<th>#</th>
+						<th>Staff id</th>
+						<th>Staff name</th>
+						<th>leave type</th>
+						<th>date of application</th>
+						<th>start date</th>
+						<th>end date</th>
+						<th>Action</th>
+					</tr>
+				</thead>';
+				echo '<tbody>';
+						$name= "";
+						if ($record!=false){
+							foreach ($record as $i){
+								$getStaffId = $i['Staff_id'];
+								$getRecentApplication = DiffTables::find_by_sql("SELECT MAX(date_of_application) FROM leave_application WHERE Staff_id = '$getStaffId'");
+								$qry = DiffTables::find_by_sql("SELECT fullname FROM users WHERE Staff_id = '$getStaffId' limit 1");
+								if ($qry != false){
+									foreach ($qry as $k){
+										$name = $k['fullname'];
+									}
+								}
+								
+								/*if ($qry != false){
+									foreach
+								}*/
+								echo "<tr><td>".$counter++."</td>
+									 <td>".$i['Staff_id']."</td>
+									 <td>".$name."</td>						
+									 <td>".$i['leave_type']."</td>							
+									 <td>".$i['date_of_application']."</td>							
+									 <td>".$i['leave_start_date']."</td>							
+									 <td>".$i['leave_end_date']."</td>
+									 <td>". '<a href="index.php?pg=l5&viewId=' .$i['id'].  '&staffId=' .$i['Staff_id'].  '" class="w3-gray w3-hover-orange w3-round">&nbsp;View&nbsp;</a>' ."</td>
+									 </tr>";
+							}
+						}
+						echo '</tbody>
+							  </table>';
+					?>
+						
+        </div>
+    </div>
+
+    <!-- Right Spacer -->
+    <div class="w3-col l2">
+        &nbsp;
+    </div>
+</section>
+<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
+<p>&nbsp;</p>
+<!-- //User Welcome Message-->
