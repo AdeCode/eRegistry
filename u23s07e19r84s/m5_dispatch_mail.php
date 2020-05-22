@@ -34,53 +34,85 @@
 ?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" style="min-height: 200px;"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
                 <?php 
                     if(isset($_POST['btnDispatchMail']))
                     {
-                        echo "$response";     
+                        echo "<div class='title_header' style='margin-bottom:10px'>$response</div>";    
                     }
                     else
                     {
-                        echo "DISPATCH NEW MAIL";
+                        $response = "DISPATCH NEW MAIL";
+                        echo "<div class='form-error'>$response</div>";
                     }
                 ?>
-            </h4>           
-            <form class="w3-container" action="index.php?pg=m5" method="post"> 
-                <select class="w3-select" name="mType">
-                  <option value="" disabled selected>Select Mail Type</option>
-                  <option value="Circular">Memo</option>
-                  <option value="Letter">Circulars</option> 
-                  <option value="Memo">Letter</option>                                                 
-                </select>               
-                <input class="w3-input" type="text" placeholder="Mail Title" name="title" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="Reference Number" name="refNo" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="From Who (Dept/Name)" name="from" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="To Where (Address/Name)" name="to" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="Dispatcher's Name" name="dispatcher" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="Receiver's Name" name="receiver" required="required" autocomplete="off">
-                <br />
-                <center><input type="submit" name="btnDispatchMail" value="Dispatch Mail" class="w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form>
-            <p>&nbsp;</p>            
-        </div>
-    </div>
+                </h4>        
+                  <div id="formMessage" ></div>
+                  <div class="form" id="form">
+                  <form action="index.php?pg=m7" method="post" role="form" class="myForm " name="myForm" >    
+                  <div class="col-md-12 formError" id="showMessage" ></div>
+                  <div class="form-group" >
+                    <select class="form-control" name="mType" id="mailtype">
+                      <option value="" disabled selected>SELECT MAIL TYPE</option>
+                      <option value="Memo">Memo</option>
+                      <option value="Circular">Circulars</option>
+                      <option value="Letter">Letter</option>
+                  </select>
+                  </div>
+                    <div class="form-group">
+                      <input type="text" name="title"  class="form-control" id="title" placeholder="Mail Title" required />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  name="refNo" id="Reference_number" placeholder="Reference Number" required />
+                      <div class="validation"></div>
+                    </div>          
+                    <div class="form-group">
+                      <input type="text" class="form-control"  name="from" id="from" placeholder="From Where (Address/Name)" required data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  name="to" id="to" placeholder="To Where (Address/Name)" required data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  name="dispatcher" id="dispatcher" placeholder="Dispatcher's Nmae" required data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  name="receiver" id="receiver" placeholder="Receiver's Name" required data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" name="btnDispatchMail" id="submit">Dispatch Mail</button></div>
+                    <span></span>
+                  </form>
+                  </div>
 
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+                  
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

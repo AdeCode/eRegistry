@@ -142,4 +142,28 @@ function removeWeekends($day, $leaveDays){
 	return $leaveDays;
 }
 
+function getDaysFromDates($start, $end, $format = 'Y-m-d'){
+  $dateArray = array();
+  $interval = new DateInterval('P1D');
+  $endDate = new DateTime($end);
+  $endDate->add($interval);
+  $period = new DatePeriod(new DateTime($start), $interval, $endDate);
+
+    foreach($period as $date) { 
+        $array[] = $date->format($format); 
+    }
+    return $array;
+}
+
+function checkDateClashes($firstDateRange, $secondDateRange){
+  foreach($firstDateRange as $datesTaken){
+    foreach ($secondDateRange as $datesApplied){
+      if ($datesTaken == $datesApplied){
+        echo "A staff from your departmetn has already applied for the chosen days";
+        return;
+      }
+    }
+  }
+}
+
 ?>

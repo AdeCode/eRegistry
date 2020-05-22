@@ -28,7 +28,7 @@ function search_likely_users (c, k)
     
     if (c.length==0 || k.length==0)
     { 
-        document.getElementById("showMessage").innerHTML="<center style='color:#f00;'>Select Searching Options Available</center>";
+        document.getElementById("likelyUser").innerHTML="<center style='color:#f00;'>Select Searching Options Available</center>";
         return;
     }
     

@@ -34,63 +34,71 @@
     }  
 ?>
 
-<?php 
 
-?>
-
-<!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" style="min-height: 200px;"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
                 <?php 
-                    if(isset($_POST['btnLeaveRoster']))
+                    if(isset($_POST['btnApplyLeave']))
                     {
-                        echo "$response";    
+                        echo "<div class='title_header'>$response</div>";    
                     }
                     else
                     {
-                        echo "LEAVE APPLICATION";
+                        $response = "LEAVE ROASTER";
+                        echo "<div class='form-error'>$response</div>";
                     }
                 ?>
-            </h4>           
-            <form class="w3-container" action="index.php?pg=l1" method="post"> 
-                          
-                <input class="w3-input" type="text" placeholder="Employee name" name="employee_name" required="required" autocomplete="off">
-                <input class="w3-input" type="date" placeholder="leave start date" name="leave_start" required="required" autocomplete="off">
-                <input class="w3-input" type="date" placeholder="leave start date" name="leave_end" required="required" autocomplete="off">
-                <!--input class="w3-input" type="text" placeholder="Today's Date" value="<?php echo date("Ymd"); ?>" name="date" required="required" autocomplete="off"-->
-                <br />
-                <center><input type="submit" name="btnLeaveRoster" value="Apply" class="w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form>
-            <p>&nbsp;</p>            
-        </div>
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        <script type="text/javascript" src="../js/roster.js"></script>
-        <form class="w3-container" action="#" method="post" name="selector">
-            <select class="w3-select" name="selectOption">
-                <option value="" disabled selected>Please choose an opotion</option>
-                <option value="one">First</option>
-                <option value="two">Second</option>
-                <input class="w3-input" type="text" placeholder="Enter your value" name="enterInput" required="required" onkeyup='check_entry(this.value)' onchange='check_entry(this.value)'>
-            </select>
-        </form>
-        &nbsp;
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" id="showResult"> 
-            <p>&nbsp;</p>                      
-        </div>
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+                </h4>        
+                  <div id="formMessage" ></div>
+                  <div class="form" id="form">
+                  <script type="text/javascript" src="../js/leave_application.js"></script>                 
+                  <form action="index.php?pg=L2" method="post" role="form" class="myForm" name="leaveForm" >    
+                  <div class="col-md-12 formError" id="showMessage" ></div>
+                  <div class="form-group" >
+                    <select class="form-control" name="leaveType" id="leaveType">
+                      <option value="" disabled selected>Select leave type</option>
+                      <option value="annual leave">Annual leave</option>
+                      <option value="maternity leave">Maternity leave</option> 
+                      <option value="casual leave">Casual leave</option>     
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="date" name="startDate" required class="form-control" id="startDate" placeholder="Leave start date"/>
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                    <input type="date" name="endDate" required class="form-control" id="endDate" placeholder="Leave end date"/>
+                    <div class="validation"></div>
+                  </div>
+                  <div class="text-center">
+                      <button type="submit" name="btnApplyLeave" id="submit">Submit Application</button>
+                  </div>
+                  </form>
+                  <p>&nbsp;</p>
+                  </div>
+                  <div class="inputDiv" style="width:inherit;height:auto;" id="showMessage"></div>
+               
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>

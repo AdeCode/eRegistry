@@ -17,67 +17,80 @@
 ?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                <?php echo $message ?>
-            </h4>
-            <script type="text/javascript" src="../js/search_out_filez.js"></script>           
-            <?php
-            $fullName = "";
-            $email = "";
-            $phoneNo = 000;
-                echo '<form class="w3-container" action="index.php?pg=p2" method="post">';
-                $record = DiffTables::find_by_sql("SELECT * FROM users WHERE Staff_id='$staffId' LIMIT 1");
-
-                if($record!=false)
-                {
-                    foreach($record as $value)
-                    {
-                        $fullName = $value["fullname"];
-                        $email = $value["email"];
-                        $phoneNo = $value["phone"];
-                    }
-                }
-            ?>
-                        
-                Name: &nbsp
-                <input class="w3-input" type="text" name="name" value="<?php echo $fullName ?>" required="required" autocomplete="off">
-                email: &nbsp
-                <input class="w3-input" type="text" name="email" value="<?php echo $email ?>" required="required" autocomplete="off">
-                Phone Number: &nbsp
-                <input class="w3-input" type="text" name="phoneNum" value="<?php echo $phoneNo ?>" required="required" autocomplete="off">
-                <br />
-                <center><input type="submit" name="btnUpdateRecord" value="Update" class="w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-                                          
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                  <?php 
+                      if(isset($_POST['btnUpdateRecord']))
+                      {
+                          echo "<div class='title_header'>$message</div>";    
+                      }
+                      else
+                      {
+                          $response = "EDIT PROFILE";
+                          echo "<div class='form-error'>$message</div>";
+                      }
+                  ?>
+                </h4>    
                 <?php
-                echo '</form>';
+                  $fullName = "";
+                  $email = "";
+                  $phoneNo = 000;
+                      echo '<div class="form" id="form">';
+                      echo '<form action="index.php?pg=p2" class="myForm" role="form" method="post">';
+                      $record = DiffTables::find_by_sql("SELECT * FROM users WHERE Staff_id='$staffId' LIMIT 1");
+
+                      if($record!=false)
+                      {
+                          foreach($record as $value)
+                          {
+                              $fullName = $value["fullname"];
+                              $email = $value["email"];
+                              $phoneNo = $value["phone"];
+                          }
+                      }
+                ?>
+                <div class="form-group">
+                  <input type="text" class="form-control"  required name="name" value="<?php echo $fullName ?>" id="dispatcher" placeholder="Dispatcher's Nmae"/>
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control"  required name="email" value="<?php echo $email ?>" id="dispatcher" placeholder="Dispatcher's Nmae"/>
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control"  required name="phoneNum" value="<?php echo $phoneNo ?>" id="dispatcher" placeholder="Dispatcher's Nmae"/>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" name="btnUpdateRecord" id="submit">Update</button>
+                </div>
+                    
+                <?php
+                echo "</form></div>";
             ?>
-            <p>&nbsp;</p>          
-        </div>
-
-        
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-
-
-
-
-
-    
+              </div>
+            </div>
+  
+              
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
 <?php
-    }
+  }
 ?>

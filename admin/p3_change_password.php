@@ -35,49 +35,73 @@
 ?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left column-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+              <div class="col-lg-6 col-md-4">
+                <div class="row form-container" >
+                  <div class="col-md-12">
+                    <div class="form" id="form">
+                    <h4 class="title_header" style="text-align:center">
+                      <?php 
+                          if(isset($_POST['btnUpdateRecord']))
+                          {
+                              echo "<div class='title_header'>$message</div>";    
+                          }
+                          else
+                          {
+                              $message = "CHANGE PASSWORD";
+                              echo "<div class='form-error'>$message</div>";
+                          }
+                      ?>
+                    </h4>    
+                    <script type="text/javascript" src="../js/changePassword.js"></script>
+                    <div id="formMessage" ></div>
+                      <div class="form" id="form">
+                      <form action="index.php?pg=m7" method="post" role="form" class="myForm" name="pass" >    
+                      <div class="col-md-12 formError" id="showMessage" ></div>           
+                      <div class="form-group">
+                        <input type="password" class="form-control"  required name="currentPassword" id="currentPassword" placeholder="Enter current password"/>
+                        <div class="validation"></div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control"  required name="newPassword" id="newPassword" placeholder="Enter new password" onkeyup='checkCurrentPassword(document.forms["pass"]["currentPassword"].value, this.value)'  autocomplete="off"/>
+                        <div class="validation"></div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control"  required name="confirmPassword" id="confirmPassword" placeholder="Confirm new password" onchange='compare_password()'/>
+                        <div class="validation"></div>
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" name="changePassword" id="submit">Change Password</button>
+                      </div>
+                    </form>
+                    </div>
+                    <p>&nbsp;</p>
+                  <div class="inputDiv" style="width:inherit;height:40px;" id="message"></div>
+         
+                  </div>
+                </div>
+              </div>  
+            
+            <!-- right column-->
+            <div class="col-md-2 col-lg-3">
+              <div class="feature-block"></div>
+            </div>
 
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                <?php echo $message ?>
-            </h4>
-            <script type="text/javascript" src="../js/changePassword.js"></script>           
-            <form class="w3-container" action="index.php?pg=p3" method="post" name="pass">
-                <input class="w3-input" type="password" placeholder="Enter current password" name="currentPassword" required="required" autocomplete="off">
-                <input class="w3-input" type="password" placeholder="Enter new password" id="newPassword" name="newPassword" required="required" onkeyup='checkCurrentPassword(document.forms["pass"]["currentPassword"].value, this.value)'  autocomplete="off">
-                <input class="w3-input" type="password" placeholder="Confirm new password" id="confirmPassword" name="confirmPassword" required="required" onchange='compare_password()'>
-                <br />
-                <center><input type="submit" name="changePassword" value="Change Password" class="w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-                
-            </form>
-
-            <p>&nbsp;</p>          
-        </div>
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" id="message"> 
-            <p>&nbsp;</p>                      
-        </div>
-
-        
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-
-
-
-
-
-    
-<?php
+          </div>         
+        </div>        
+      </section>
+      <?php
     }
 ?>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

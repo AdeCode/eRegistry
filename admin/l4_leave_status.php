@@ -5,22 +5,40 @@
 ?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-green w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                <?php 
+                    if(isset($_POST['btnApplyLeave']))
+                    {
+                        echo "<div class='title_header'>$response</div>";    
+                    }
+                    else
+                    {
+                        $response = "LEAVE APPLICATION STATUS";
+                        echo "<div class='form-error'>$response</div>";
+                    }
+                ?>
+                </h4>        
+                  <div id="formMessage" ></div>
+                  <div class="form" id="form">
+                  <h4 align="center">
                 <?php 
 				
-					echo "<h4 align='center'>Leave Application status</h4>";
-					$record = DiffTables::find_by_sql("SELECT * FROM leave_application WHERE Staff_id = '$staffId' LIMIT 1");
-                  
+					echo "<h4 align='center'></h4>";
+					$record = DiffTables::find_by_sql("SELECT * FROM leave_application WHERE Staff_id = '$staffId' AND id=(SELECT MAX(id) FROM leave_application) LIMIT 1");
+                   
 					echo '<table class="w3-table-all w3-hoverable">';
 					if ($record != false){
 						foreach ($record as $value){
@@ -37,21 +55,24 @@
 						}
 					
 					}else{
-						echo "Error: ".$query."<br>".$conn->error;
+						echo "<span class='errorMessage'>No pending leave application found</span>";
 					}
 					echo '</table>';
                 ?>
-            </h4>                 
-            <p>&nbsp;</p>          
-        </div>
-        
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+            </h4>             
+                  <p>&nbsp;</p>
+                  </div>
+                  <div class="inputDiv" style="width:inherit;height:auto;" id="showMessage"></div>
+               
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>

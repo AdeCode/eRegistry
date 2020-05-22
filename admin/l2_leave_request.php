@@ -14,21 +14,31 @@
 
 
 
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l2">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l8">
-        <h4 align="center">
-                PENDING LEAVE REQUESTS
-            </h4>        
-		<div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            
-				
-					<?php 
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <div class="col-md-2 col-lg-1">
+                  <div class="feature-block"></div>
+  
+              </div>
+          <div class="col-lg-10 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                <?php 
+                    if(isset($_POST['btnReceiveMail']))
+                    {
+                        echo "<div class='title_header'>$response</div>";    
+                    }
+                    else
+                    {
+                        $response = "PENDING LEAVE REQUESTS";
+                        echo "<div class='form-error'>$response</div>";
+                    }
+                ?>
+                </h4>        
+				<?php 
 						$counter = 1;
 						$record = DiffTables::find_by_sql("SELECT * FROM leave_application WHERE status = 'processing' order by date_of_application DESC");
 						
@@ -40,8 +50,6 @@
 						<th>Staff name</th>
 						<th>leave type</th>
 						<th>date of application</th>
-						<th>start date</th>
-						<th>end date</th>
 						<th>Action</th>
 					</tr>
 				</thead>';
@@ -64,9 +72,7 @@
 									 <td>".$i['Staff_id']."</td>
 									 <td>".$name."</td>						
 									 <td>".$i['leave_type']."</td>							
-									 <td>".$i['date_of_application']."</td>							
-									 <td>".$i['leave_start_date']."</td>							
-									 <td>".$i['leave_end_date']."</td>
+									 <td>".$i['date_of_application']."</td>					
 									 <td>". '<a href="index.php?pg=l5&viewId=' .$i['id'].  '&staffId=' .$i['Staff_id'].  '" class="w3-gray w3-hover-orange w3-round">&nbsp;View&nbsp;</a>' ."</td>
 									 </tr>";
 							}
@@ -74,14 +80,20 @@
 						echo '</tbody>
 							  </table>';
 					?>
-						
-        </div>
-    </div>
 
-    <!-- Right Spacer -->
-    <div class="w3-col l2">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
+                  
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <div class="col-md-2 col-lg-1"></div>
+  
+          </div>
+        </div>        
+      </section>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

@@ -60,57 +60,70 @@
     }    
 ?>
 
-<!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-green w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
                 <?php 
                     if(isset($_POST['btnApplyLeave']))
                     {
-                        echo "$response";    
+                        echo "<div class='title_header'>$response</div>";    
                     }
                     else
                     {
-                        echo "APPLY FOR LEAVE";
-						//echo $staffId;
+                        $response = "APPLY FOR LEAVE";
+                        echo "<div class='form-error'>$response</div>";
                     }
                 ?>
-            </h4>     
-            <script type="text/javascript" src="../js/leave_application.js"></script>                 
-            <form class="w3-container" action="index.php?pg=l1" method="post" name="leaveForm">
-                <select class="w3-select" name="leaveType">
-                  <option value="" disabled selected>Select leave type</option>
-                  <option value="annual leave">Annual leave</option>
-                  <option value="maternity leave">Maternity leave</option> 
-                  <option value="casual leave">Casual leave</option>                                                                                                                                     
-                </select>                
-                <label>Leave start date</label>
-                <input class="w3-input w3-border-green" type="date" placeholder="Start Date" name="startDate" required="required" autocomplete="off" onchange='leave_apply(document.forms["leaveForm"]["leaveType"].value, this.value)'>   
-                <label>Leave end date</label>             
-                <input class="w3-input w3-border-green" type="date" placeholder="End Date" name="endDate" required="required" autocomplete="off" onchange='leave_apply(document.forms["leaveForm"]["leaveType"].value, this.value)'>
-                <br />
-                <center><input type="submit" name="btnApplyLeave" value="Submit Application" class="w3-btn w3-green w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form> 
-            <p>&nbsp;</p>          
-        </div>
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" id="showMessage"> 
-            <p>&nbsp;</p>                      
-        </div>
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+                </h4>        
+                  <div id="formMessage" ></div>
+                  <div class="form" id="form">
+                  <script type="text/javascript" src="../js/leave_application.js"></script>                 
+                  <form action="index.php?pg=l1" method="post" role="form" class="myForm" name="leaveForm" >    
+                  <div class="col-md-12 formError" id="showMessage" ></div>
+                  <div class="form-group" >
+                    <select class="form-control" name="leaveType" id="leaveType">
+                      <option value="" disabled selected>Select leave type</option>
+                      <option value="annual leave">Annual leave</option>
+                      <option value="maternity leave">Maternity leave</option> 
+                      <option value="casual leave">Casual leave</option>     
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="date" name="startDate" required class="form-control" id="startDate" placeholder="Leave start date"/>
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                    <input type="date" name="endDate" required class="form-control" id="endDate" placeholder="Leave end date"/>
+                    <div class="validation"></div>
+                  </div>
+                  <div class="text-center">
+                      <button type="submit" name="btnApplyLeave" id="submit">Submit Application</button>
+                  </div>
+                  </form>
+                  <p>&nbsp;</p>
+                  </div>
+                  <div class="inputDiv" style="width:inherit;height:auto;" id="showMessage"></div>
+               
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>

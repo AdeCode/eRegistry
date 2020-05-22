@@ -19,22 +19,35 @@
 ?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" style="min-height: 200px;"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                FILE UP CHARGED MAIL                
-            </h4>
-            <script type="text/javascript" src="../js/fetch_mail_title.js"></script>           
-            <form class="w3-container" action="index.php?pg=m4" method="post">                
-                <center>
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                <?php 
+                    if(isset($_POST['btnReceiveMail']))
+                    {
+                        echo "<div class='title_header'>$response</div>";    
+                    }
+                    else
+                    {
+                        $response = "FILE UP CHARGED MAIL";
+                        echo "<div class='form-error'>$response</div>";
+                    }
+                ?>
+                </h4>        
+                  <div class="form" id="form">
+                  <script type="text/javascript" src="../js/fetch_mail_title.js"></script>           
+                  <form action="index.php?pg=m4" method="post" role="form" class="myForm " >
+                  <div class="form-group">
+                  <center>
                     <div class="w3-text-red" id="show_title">
                         <?php 
                             if(isset($_POST['btnFileUp']))
@@ -54,24 +67,43 @@
                             }
                         ?>  
                     </div>
-                </center>
-                <input class="w3-input" type="text" placeholder="Mail Reference Number" name="refNo" id="refNo" required="required" autocomplete="off" onkeyup="display_title(this.value)" onchange="display_title(this.value)">                
-                <input class="w3-input" type="text" placeholder="File Number" name="fileNo" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="File Volume" name="fileVol" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="File Page Number" name="filePageNo" required="required" autocomplete="off">                
-                <!--input class="w3-input" type="text" placeholder="Today's Date" value="<?php echo date("Ymd"); ?>" name="date" required="required" autocomplete="off"-->
-                <br />
-                <center><input type="submit" name="btnFileUp" value="File Up" class="w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form>
-            <p>&nbsp;</p>            
-        </div>
-    </div>
+                </center>    
+                  <div class="col-md-12 formError" id="showMessage" ></div>
+                      <input type="text" name="refNo" require class="form-control" id="refNo" placeholder="Mail Reference Number" onkeyup="display_title(this.value)" onchange="display_title(this.value)"/>
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" require name="fileNo" id="fileNo" placeholder="File Number" />
+                      <div class="validation"></div>
+                    </div>          
+                    <div class="form-group">
+                      <input type="text" class="form-control" require name="fileVol" id="fileVol" placeholder="File Volume" />
+                      <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" require name="filePageNo" id="filePageNo" placeholder="File Page Number" />
+                      <div class="validation"></div>
+                    </div>
+                    
+                    <div class="text-center">
+                      <button type="submit" name="btnFileUp" id="submit">File Up</button></div>
+                    <span></span>
+                  </form>
+                  </div>
 
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+                  
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

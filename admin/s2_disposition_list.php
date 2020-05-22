@@ -1,81 +1,85 @@
-
-
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l2">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l8">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                DISPOSITION LIST
-            </h4> 
-            <script type="text/javascript" src="../js/search_user.js"></script>           
-            <form class="w3-container" action="#" method="post" name="userForm">
-                <select class="w3-select" name="searchCriterion">
-                  <option value="" disabled selected>User Search Criterion</option>
-                  <option value="staffName">By name</option>
-                  <option value="staffId">By staff id</option>                                                                   
-                </select>
-
-                <input class="w3-input" type="text" placeholder="File Search Keyword(s)" name="keyword" required="required" autocomplete="off" onkeyup='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)' onchange='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)'>
-            </form> 
-            <p>&nbsp;</p>      
-			 <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" id="likelyUser"> 
-            <p>&nbsp;</p>                      
-        </div>
-        </div>
-
-       
-		<div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            
-				
-					<?php 
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <div class="col-md-2 col-lg-1">
+                  <div class="feature-block"></div>
+  
+              </div>
+          <div class="col-lg-10 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                <?php 
+                   
+                        $response = "DISPOSITION LIST";
+                        echo "<div class='form-error'>$response</div>";
+                    
+                ?>
+                </h4> 
+				<div id="formMessage"></div>
+                  <div class="form" id="form">
+				  <script type="text/javascript" src="../js/search_user.js"></script>           
+                  <form action="#" method="post" role="form" class="myForm" name="userForm" > 
+                  <div class="form-group" >
+                    <select class="form-control" name="mType" id="searchCriterion">
+                      <option value="" disabled selected>SELECT USER SEARCH CRITERION</option>
+                      <option value="staffName">By Name</option>
+                      <option value="staffId">By Staff Id</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="keyword" required class="form-control" id="keyword" placeholder="User Search Keyword(s)" onkeyup='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)' onchange='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)' />
+                      <div class="validation"></div>
+                  </div>
+                  </form>
+                  </div>
+                  <div class="inputDiv" style="width:inherit;height:auto;" id="likelyUser"></div>       
+				  <?php 
 						$counter = 1;
 						$record = DiffTables::find_by_sql("SELECT * FROM staffs");
 						//$sql = "SELCT * FROM staffs";
 						//$result = $con->query($sql);
 						echo '<table class="table table-bordered table-hover">';
 						echo '<thead>
-					<tr>
-						<th>#</th>
-						<th>Staff id</th>
-						<th>Staff name</th>
-						<th>First appointment</th>
-						<th>Present appointment</th>
-						<th>Present post</th>
-						<th>Grade level</th>
-						<th>Action</th>
-					</tr>
-				</thead>';
-				echo '<tbody>';
-						if ($record!=false){
-							foreach ($record as $i){
-								echo "<tr><td>".$counter++."</td>
-									 <td>".$i['Staff_id']."</td>
-									 <td>".$i['Staff_name']."</td>						
-									 <td>".$i['first_appointment']."</td>							
-									 <td>".$i['Present_appointment']."</td>							
-									 <td>".$i['Present_post']."</td>							
-									 <td>".$i['Grade_level']."</td>
-									 <td>". '<a href="index.php?pg=s4&viewId=' .$i['id'].  '" class="w3-gray w3-hover-orange w3-round">&nbsp;View&nbsp;</a>' ."</td>
-									 </tr>";
-							}
-						}
+						<tr>
+							<th>#</th>
+							<th>Staff id</th>
+							<th>Staff name</th>
+							<th>Present post</th>
+							<th>Grade level</th>
+							<th>Action</th>
+						</tr>
+						</thead>';
+						echo '<tbody>';
+								if ($record!=false){
+									foreach ($record as $i){
+										echo "<tr><td>".$counter++."</td>
+											<td>".$i['Staff_id']."</td>
+											<td>".$i['Staff_name']."</td>																					
+											<td>".$i['Present_post']."</td>							
+											<td>".$i['Grade_level']."</td>
+											<td>". '<a href="index.php?pg=s4&viewId=' .$i['id'].  '" class="w3-gray w3-hover-orange w3-round">&nbsp;View&nbsp;</a>' ."</td>
+											</tr>";
+									}
+								}
 						echo '</tbody>
-							  </table>';
+						</table>';
 					?>
-						
-        </div>
-    </div>
 
-    <!-- Right Spacer -->
-    <div class="w3-col l2">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
+                  
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <div class="col-md-2 col-lg-1"></div>
+  
+          </div>
+        </div>        
+      </section>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

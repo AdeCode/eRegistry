@@ -42,58 +42,83 @@
     }  
 ?>
 
-<?php 
-
-?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" style="min-height: 200px;"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
                 <?php 
                     if(isset($_POST['btnAddUser']))
                     {
-                        echo "$response";    
+                        echo "<div class='title_header'>$response</div>";    
                     }
                     else
                     {
-                        echo "ADD USER";
+                        $response = "ADD NEW USER";
+                        echo "<div class='form-error'>$response</div><p>&nbsp;</p>";
                     }
                 ?>
-            </h4>           
-            <form class="w3-container" action="index.php?pg=s5" method="post" enctype="multipart/form-data"> 
-                <input class="w3-input" type="email" placeholder="email" name="email" id="email" required="required" autocomplete="off">
-                <input class="w3-input" type="password" placeholder="********" name="password" id="password" required="required" autocomplete="off">
-                <input class="w3-input" type="text" placeholder="fullname" name="fullname" id="present_appointment" required="required" autocomplete="off">
-                <select class="w3-select" name="sex">
-                    <option value="" disabled selected>Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                <input class="w3-input" type="number" placeholder="phone" name="phone" id="phone" required="required" autocomplete="off">
-                <select class="w3-select" name="role">
-                    <option value="" disabled selected>Role</option>
-                    <option value="users">User</option>
-                    <option value="admin">Admin</option>                    
-                    <option value="developer">Developer</option>                                       
-                </select>
-               
-                <br />
-                <center><input type="submit" name="btnAddUser" value="Add" class="w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form>
-            <p>&nbsp;</p>            
-        </div>
-    </div>
-    
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+                <p>&nbsp;</p>
+                </h4>        
+                  <div id="formMessage" ></div>
+                  <div class="form" id="form">
+                  <form action="index.php?pg=s5" method="post" role="form" class="myForm" name="myForm" >    
+                  <div class="col-md-12 formError" id="showMessage" ></div>
+                  <div class="form-group">
+                      <input type="text" name="fullname" required class="form-control" id="fullname" placeholder="Full Name" />
+                      <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                      <input type="email" name="email" required class="form-control" id="email" placeholder="email@mail.com" />
+                      <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                      <input type="password" name="password" required class="form-control" id="password" placeholder="********" />
+                      <div class="validation"></div>
+                  </div>
+                  <div class="form-group" >
+                    <select class="form-control" name="sex" id="sex">
+                      <option value="" disabled selected>Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>  
+                    </select>
+                  </div>
+                  <div class="form-group" >
+                    <select class="form-control" name="role" id="role">
+                      <option value="" disabled selected>Role</option>
+                      <option value="users">Users</option>
+                      <option value="admin">Admin</option>  
+                      <option value="developer">Developer</option>  
+                    </select>
+                  </div>
+                  <div class="text-center">
+                      <button type="submit" name="btnAddUser" id="submit">Add User</button>
+                  </div>  
+                  </form>
+                  </div>
+                                 
+                </div>
+              </div>
+            </div>             
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

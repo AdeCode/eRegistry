@@ -30,131 +30,90 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
+
+<link href="../img/favicon.png" rel="icon">
+  <!-- Libraries CSS Files -->
+  <link href="../extensions/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../extensions/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../extensions/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="../extensions/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../extensions/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../extensions/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
+  <link href="../extensions/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Main Stylesheet File -->
 	<!--// Meta tag Keywords -->
 	<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.png">
 
-	<!-- css files -->
-	<link rel="stylesheet" href="../css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+
+ 
+	<!-- //web-fonts -->
+	  <link href="../extensions/css/style.css" rel="stylesheet">  
+
+    <link rel="stylesheet" href="../css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
 	<link rel="stylesheet" href="../css/w3.css"> <!-- W3-CSS -->
 	<link rel="stylesheet" href="../css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> 
-	<link rel="stylesheet" href="../css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
-	<!-- //css files -->
-
-	<!-- web-fonts -->
-	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-	<!-- //web-fonts -->
-	
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="../css/fontawesome-all.css">
 </head>
 
 <body>
 <!-- header -->
-<header>
-	<div class="container">		
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+<header id="header" class="header header-hide scroll-header">
+        <div class="container">
+       
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li class="menu-active"><a href="index.php">HOME</a></li>
+              <li><a href="#about-us">MAILS</a>
+                <ul>
+                  <li><a href="index.php?pg=m1">Receive new mail</a></li>
+                  <li><a href="index.php?pg=m2">Charge Mail</a></li>
+                  <li><a href="index.php?pg=m3">Receive Charged Mail</a></li>
+                  <li><a href="index.php?pg=m4">File Up Mail</a></li>
+                  <li><a href="index.php?pg=m5">Dispatch Mail</a></li>
+				          <li><a href="index.php?pg=m6">Search Mail</a></li>
+				          <li><a href="index.php?pg=m7">Receive Mail</a></li>
+                </ul>
+              </li>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mx-auto text-center">
-					<li class="nav-item mr-lg-3">
-						<a class="nav-link" href="index.php">
-							HOME
-						</a>
-					</li>
-					<li class="nav-item dropdown mr-lg-3">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							MAILS
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="index.php?pg=m1">Receive New Mail</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=m2">Send Out For Charging</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=m3">Receive Charged Mail</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=m4">File Up Mail</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=m5">Dispatch Mail</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=m6">Search Out Mail</a>													
-						</div>
-					</li>
-					<li class="nav-item dropdown mr-lg-3">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							FILES
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="index.php?pg=f1">Open New File</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=f2">File Movement</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=f3">Archive File</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=f4">Morning List Guide</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=f5">Search Out File</a>												
-						</div>
-					</li>					
-					<li class="nav-item dropdown mr-lg-4">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							LEAVES
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="index.php?pg=l1&id=$userRecord">Apply</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=l2">Leave Roster</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=l3">Leave Approval</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=l5">Get Leave Trend</a>													
-						</div>
-					</li>					
-					<li class="nav-item dropdown mr-lg-3">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							DEPARTMENT
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="index.php?pg=d1">Add New Department</a>												
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=d2">Rename Department</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=d3">Delete Old Department</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=d4">Search Out Department</a>															
-						</div>
-					</li>
-					<li class="nav-item dropdown mr-lg-3">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							PROFILE
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="index.php?pg=p1">View Profile</a>												
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=p2">Edit profile</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="index.php?pg=p3">Change password</a>																					
-						</div>
-					</li>
-								
-					<li class="nav-item active mr-lg-3">
-						<a class="nav-link" href="../logout.php" style="color:#f00;">
-							LOGOUT
-						</a>
-					</li>					
-				</ul>				
-			</div>
-		</nav>
-	</div>
-</header>
-<!-- //header -->
+              <li><a href="#features">FILES</a>
+                <ul>
+                  <li><a href="index.php?pg=f1">Open New File</a></li>
+                  <li><a href="index.php?pg=f2">File Movement</a></li>
+                  <li><a href="index.php?pg=f3">Archive File</a></li>
+                  <li><a href="index.php?pg=f4">Morning List Guide</a></li>
+                  <li><a href="index.php?pg=f5">Search Out File</a></li>
+                </ul>
+              </li>
+              <li><a href="#screenshots">LEAVES</a>
+                <ul>    
+                  <li><a href="index.php?pg=l1&id=$userRecord">Apply</a></li>
+                  <li><a href="index.php?pg=l2">Leave Roster</a></li>
+                  <li><a href="index.php?pg=l3">Leave Approval</a></li>
+                  <li><a href="index.php?pg=l5">Get Leave Trend</a></li>
+                </ul>
+              </li>
+              <li><a href="#team">DEPARTMENT</a>
+                <ul>    
+                  <li><a href="index.php?pg=d1">Add Department</a></li>
+                  <li><a href="index.php?pg=d2">Rename Department</a></li>
+                  <li><a href="index.php?pg=d3">Delete Department</a></li>
+                  <li><a href="index.php?pg=d4">Search Department</a></li>
+                </ul>
+              </li>
+              <li><a href="#pricing">PROFILE</a>
+                <ul>    
+                  <li><a href="index.php?pg=p1">View Profile</a></li>
+                  <li><a href="index.php?pg=p2">Edit Profile</a></li>
+                  <li><a href="index.php?pg=p3">Change Password</a></li>
+                </ul>
+              </li>
+                <li style="color:red;"><a href="../logout.php">LOGOUT</a></li>
+            </ul>
+          </nav><!-- #nav-menu-container -->
+        </div>
+	</header><!-- #header -->
+	
 
-<hr style="margin-top: 0;" />
+	

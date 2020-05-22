@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title></title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" style="margin-bottom: 80px;"></div>
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6">
+                    <form action="" method="post" role="form" class="receiveMail" name="myForm">
+                        <div class="col-md-12" id="showMessage" style="height: 30px; border:2px solid black;color: red; text-align: center;"></div>
+                        <div class="form-group">
+                          <input type="text" name="mailTitle" class="form-control" id="name" placeholder="Mail Title" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                          <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                          <input type="email" class="form-control" name="Reference_number" id="Reference_number" placeholder="Reference Number" data-rule="email" data-msg="Please enter a valid email" />
+                          <div class="validation"></div>
+                        </div>          
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="from" id="from" placeholder="From Where (Address/Name)" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                          <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="dispatcher" id="dispatcher" placeholder="Dispatcher's Nmae" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                          <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="receiver" id="receiver" placeholder="Receiver's Name" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                          <div class="validation"></div>
+                        </div>
+                        <div id="message"></div>
+                        <div class="text-center"><button type="submit" id="submit">Send Message</button></div>
+                      </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        
+          <span></span>
+          <script src="lib/jquery/jquery.min.js"></script>
+          <script>
+              $('document').ready(function(){
+                 /* $('#submit').click(function(){
+                    alert("You are submitting...");
+                  });*/
+                  $('form').submit(function(event){
+                      if ($("input:first").val() == "mail"){
+                          $("#showMessage").text("Directing to mail...").show();
+                          return;
+                      }
+                      //alert("You are submitting...");
+                      $("#showMessage").text("Error! Please select a value").show().fadeOut(2000);
+                      event.preventDefault();
+                  });
+
+              })
+          </script>
+    </body>
+</html>

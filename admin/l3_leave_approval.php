@@ -1,6 +1,7 @@
 <?php
     $response = "";
-    $confirmSubmission = false;
+	$confirmSubmission = false;
+	$staffId = $loggedId;
 ?>
 
 <!-- User Welcome Message-->

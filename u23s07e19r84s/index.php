@@ -1,17 +1,19 @@
 <?php 
 	require_once('header.php');
-
 	if(isset($_GET["pg"]))
     {
     	$pg = $_GET["pg"];
 
         if($pg == "m1"){ require_once("m1_receive_new_mail.php"); }
         else if($pg == "d1"){ require_once("d1_add_new_department.php");}
+        else if($pg == "d2"){ require_once("d2_add_new_department.php");}
+        else if($pg == "d3"){ require_once("d3_add_new_department.php");}
         else if($pg == "m2"){ require_once("m2_send_out_4_charging.php"); }
         else if($pg == "m3"){ require_once("m3_receive_charged_mail.php"); }
         else if($pg == "m4"){ require_once("m4_file_up_mail.php"); }
         else if($pg == "m5"){ require_once("m5_dispatch_mail.php"); }
         else if($pg == "m6"){ require_once("m6_search_out_mail.php"); }
+        else if($pg == "m7"){ require_once("m7_receive_new_mail.php"); }
         else if($pg == "f1"){ require_once("f1_open_new_file.php"); }
         else if($pg == "f2"){ require_once("f2_file_movement.php"); }
         else if($pg == "f3"){ require_once("f3_archive_file.php"); }

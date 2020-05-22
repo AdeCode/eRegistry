@@ -30,44 +30,66 @@
 ?>
 
 <!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-green w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
                 <?php 
                     if(isset($_POST['btnOpenFile']))
                     {
-                        echo "$response";    
+                        echo "<div class='title_header'>$response</div>";    
                     }
                     else
                     {
-                        echo "OPEN NEW FILE";
+                        $response = "OPEN NEW FILE";
+                        echo "<div class='form-error'>$response</div><p>&nbsp;</p>";
                     }
                 ?>
-            </h4>           
-            <form class="w3-container" action="index.php?pg=f1" method="post">
-                <input class="w3-input w3-border-green" type="text" placeholder="File Number" name="fileNo" required="required" autocomplete="off">                
-                <input class="w3-input w3-border-green" type="text" placeholder="File Title" name="title" required="required" autocomplete="off">
-                <input class="w3-input w3-border-green" type="text" placeholder="File Volume" name="fileVol" required="required" autocomplete="off">
-                <br />
-                <center><input type="submit" name="btnOpenFile" value="Open File" class="w3-btn w3-green w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form> 
-            <p>&nbsp;</p>          
-        </div>
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large">&nbsp;</section>
-<p>&nbsp;</p>
-<!-- //User Welcome Message-->
+                <p>&nbsp;</p>
+                </h4>        
+                  <div id="formMessage" ></div>
+                  <div class="form" id="form">
+                  <form action="index.php?pg=f1" method="post" role="form" class="myForm" name="myForm" >    
+                  <div class="col-md-12 formError" id="showMessage" ></div>
+                  <div class="form-group">
+                      <input type="text" name="fileNo" required class="form-control" id="keyword" placeholder="File Number" />
+                      <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="title" required class="form-control" id="keyword" placeholder="File Title" />
+                      <div class="validation"></div>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="fileVol" required class="form-control" id="keyword" placeholder="File Volume" />
+                      <div class="validation"></div>
+                  </div>
+                  <div class="text-center">
+                      <button type="submit" name="btnOpenFile" id="submit">Open File</button>
+                  </div>  
+                  </form>
+                  </div>
+                                 
+                </div>
+              </div>
+            </div>             
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>

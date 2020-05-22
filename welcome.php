@@ -1,6 +1,6 @@
 <?php
 // Remember to give your form's submit tag a name="btnLogin" attribute!
-$message = "";
+$message = "LOGIN";
 
 if (isset($_POST['btnLogin'])) // Form has been submitted.
 { 
@@ -65,44 +65,93 @@ else
 }
 ?>
 
-<!-- User Welcome Message-->
-<section class="w3-row w3-padding">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
+<!-- User login form-->
+<section id="hero" class="wow fadeIn" style="margin:0px;height:3px;">
+<link href="extensions/css/bootstrap.min.css" rel="stylesheet">
+<link href="extensions/css/style.css" rel="stylesheet">  
 
-    <!-- Welcome Image -->
-    <div class=" w3-round-large w3-border-orange w3-col l4">
-        <div class="w3-margin w3-text-dark-gray" style="min-height: 200px;">
-            <img src="./img/home_wecme.png" alt="MDA logo"> 
-            <p>&nbsp;</p> 
-            <h4 align="center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 title_header" >
+              <div class="section-title text-center">
+                <h2 style="color: white;">LOGIN</h2>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+           
+            <div class="row">
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+          <div class="col-lg-6 col-md-4">
+            <div class="row" style="padding: 20px; border:1px solid #ecc74d;">
+              <div class="col-md-12">
+                <img src="img/home_welcome.png" alt="MDA logo" style="width: inherit;height: 80px;">
+                <p>&nbsp;</p> 
+            <h4 style="align:center;">
                 <?php 
-                    if(isset($_POST['btLogin']))
+                    
+                    if(isset($_POST['btnLogin']))
                     {
-                        echo "Access Denied";    
+                      $message = "Access Denied, Invalid email or password";    
+                      echo "<div class='formError' >$message</div>";
                     }
                     else
                     {
-                        echo "Login Section";
+                      $message = "Enter your email and password";
+                      echo "<div class='formError' >$message</div>";
                     }
                 ?>
             </h4> 
-            <form class="w3-container" action="index.php" method="post">                
-                <input class="w3-input" type="email" placeholder="Email" name="email" required="required" autocomplete="off">
-                <input class="w3-input" type="password" placeholder="Password" name="password" required="required" autosave="off">
-                <br />
-                <center><input type="submit" name="btnLogin" value="Sign in" class="btn-success w3-btn w3-black w3-round w3-hover-orange w3-hover-text-white"></center>
-            </form>                         
-        </div>
-    </div> 
+                <div class="form" id="form">
+                  <form action="index.php" method="post" role="form" class="myForm " name="myForm" >    
+                    <div class="col-md-12 formError" id="showMessage" ></div>                  
+                      <div class="form-group">
+                        <input type="email" name="email"  class="form-control" id="email" placeholder="email" data-rule="minlen:4" autocomplete="off"/>
+                        <div class="validation"></div>
+                      </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control"  name="password" id="password" autosave="off" placeholder="********" data-rule="email" />
+                        <div class="validation"></div>
+                      </div>                                
+                      <div class="text-center">
+                      <button type="submit" name="btnLogin" id="btnLogin" onclick="checkForm();" style="width: 100%;">LOGIN</button></div>
+                      <span></span>
+                </form>     
+              </div>
 
+              </div>
+            </div>              
+          </div>
+          <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
 
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-</section>
-<section class="w3-row w3-padding w3-hide-large" style="background:#fff;">&nbsp;</section>
+      <section>
+      <div class="row">
+  
+        
+
+      </div>
+      
+    </section>
+    <script src="extensions/lib/jquery/jquery.min.js"></script>
+    <script src="extensions/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="extensions/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="extensions/lib/superfish/hoverIntent.js"></script>
+    <script src="extensions/lib/superfish/superfish.min.js"></script>
+    <script src="extensions/lib/easing/easing.min.js"></script>
+    <script src="extensions/lib/modal-video/js/modal-video.js"></script>
+    <script src="extensions/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="extensions/lib/wow/wow.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="extensions/contactform/contactform.js"></script>
+  
+    <!-- Template Main Javascript File -->
+    <script src="extensions/js/main.js"></script>
 <!-- //User Welcome Message-->

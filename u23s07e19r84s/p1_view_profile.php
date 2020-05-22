@@ -20,22 +20,35 @@
     }
 
 ?>
-<!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
 
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                <?php echo $message ?>
-            </h4>
-            <script type="text/javascript" src="../js/search_out_filez.js"></script>           
-            <?php
+
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                  <?php 
+                      if(isset($_POST['btnApplyLeave']))
+                      {
+                          echo "<div class='title_header'>$response</div>";    
+                      }
+                      else
+                      {
+                          $response = "VIEW PROFILE";
+                          echo "<div class='form-error'>$response</div>";
+                      }
+                  ?>
+                </h4>        
+                <?php
                 echo '<table class="w3-table-all w3-hoverable">';
                     
                 $record = DiffTables::find_by_sql("SELECT * FROM users WHERE Staff_id='$staffId' LIMIT 1");
@@ -83,31 +96,24 @@
                 echo '</table>';                    
             ?>
              <br/>
-        <label>Select an image</label>
-        <input type="file" name="image" id="image"/>
-        <span id="uploaded_image"></span>
+          <label>Select an image</label>
+          <input type="file" name="image" id="image"/>
+          <span id="uploaded_image"></span>
 
         <br/>
-           
-            <p>&nbsp;</p>          
-        </div>
-
-        
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-
-
-
-
-
-    
+              </div>
+            </div>
+  
+              
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
 <?php
-    }
+  }
 ?>
 <script>
 $(document).ready(function(){

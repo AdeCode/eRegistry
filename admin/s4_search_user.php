@@ -3,7 +3,6 @@
     {
 ?>
 
-<!-- User Welcome Message-->
 <section class="w3-row">
     <!-- Left Spacer -->
     <div class="w3-col l4">
@@ -11,57 +10,83 @@
     </div>
 
     <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                SEARCH STAFF
-            </h4>
-            <script type="text/javascript" src="../js/search_user.js"></script>           
-            <form class="w3-container" action="#" method="post" name="userForm">
-                <select class="w3-select" name="searchCriterion">
-                  <option value="" disabled selected>User Search Criterion</option>
-                  <option value="staffName">By name</option>
-                  <option value="staffId">By staff id</option>                                                                   
-                </select>
+    <section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                <?php 
+                    $response = "SEARCH OUT USER";
+                    echo "<div class='form-error'>$response</div>";                    
+                ?>
+                <p>&nbsp;</p>
+                </h4>        
+                  <div id="formMessage"></div>
+                  <div class="form" id="form">
+                  <script type="text/javascript" src="../js/search_user.js"></script>           
+                  <form action="#" method="post" role="form" class="myForm" name="userForm" > 
+                  <div class="form-group" >
+                    <select class="form-control" name="searchCriterion" id="searchCriterion">
+                      <option value="" disabled selected>User Search Criterion</option>
+                      <option value="staffName">By name</option>
+                      <option value="staffId">By staff id</option>  
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" name="keyword" required class="form-control" id="keyword" placeholder="User Search Keyword(s)" onkeyup='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)' onchange='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)' />
+                      <div class="validation"></div>
+                  </div>
+                  </form>
+                  </div>
+                  <p>&nbsp;</p>
+                  <div class="inputDiv" style="width:inherit;height:auto;" id="likelyUser"></div>
+              
+                </div>
+              </div>
+            </div>             
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
 
-                <input class="w3-input" type="text" placeholder="File Search Keyword(s)" name="keyword" required="required" autocomplete="off" onkeyup='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)' onchange='search_likely_users(document.forms["userForm"]["searchCriterion"].value, this.value)'>
-            </form> 
-            <p>&nbsp;</p>          
-        </div>
-
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray" id="likelyUser"> 
-            <p>&nbsp;</p>                      
-        </div>
-    </div>
-
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-<!-- //User Welcome Message-->
-<?php
+          </div>
+        </div>        
+      </section>
+      <?php
     }
     else if(isset($_GET['viewId']))
     {
 ?>
-
-<!-- User Welcome Message-->
-<section class="w3-row">
-    <!-- Left Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
-
-    <!-- Content Area -->
-    <div class="w3-col l4">
-        <div class="w3-margin w3-border w3-round-large w3-border-orange w3-text-dark-gray"> 
-            <p>&nbsp;</p>  
-            <h4 align="center">
-                SEARCH RESULT
-            </h4>          
-            <form class="w3-container" action="#" method="post">
-            <?php
+<section id="hero" class="wow fadeIn">
+        <div class="container">         
+            <div class="row">
+              <!-- left side-->
+              <div class="col-md-2 col-lg-3">
+                  <div class="feature-block"></div>
+  
+              </div>
+              <!-- center column-->
+          <div class="col-lg-6 col-md-4">
+            <div class="row form-container" >
+              <div class="col-md-12">
+                <div class="form" id="form">
+                <h4 class="title_header" style="text-align:center">
+                <?php 
+                   
+                    $response = "SEARCH OUT USER";
+                    echo "<div class='form-error'>$response</div>";
+                    
+                ?>
+                </h4>  
+                <?php
                 echo '<table class="w3-table-all w3-hoverable">';
 
                 $id = $_GET['viewId'];
@@ -159,16 +184,26 @@
 
                 echo '</table>';                     
             ?>
-            </form> 
-            <p>&nbsp;</p>          
-        </div>
-    </div>
-<!-- //User Welcome Message-->
+                  </form>
+                  </div>
 
-    <!-- Right Spacer -->
-    <div class="w3-col l4">
-        &nbsp;
-    </div>
+                  
+                </div>
+              </div>
+            </div>
+  
+              
+            </div>
+            <!-- right side-->
+            <div class="col-md-2 col-lg-3"></div>
+  
+          </div>
+        </div>        
+      </section>
 <?php
-    }
+  }
 ?>
+      <script src="../extensions/lib/jquery/jquery.min.js"></script>
+      <script>
+     
+      </script>
